@@ -1,0 +1,14 @@
+<div class="d-flex w-100 flex-row" style="height:100vh">
+    <div class="h-100" style="width: 300px;background: #ccc;">
+        <div class="w-100" style="height: 60px;"> menu</div>
+        <div class="w-100" style="padding:15px;height:calc(100% - 60px);">
+            menu content
+        </div>
+    </div>
+    <div class="d-flex flex-column h-100" style="width: calc(100% - 300px)">
+        <div class="w-100" style="height: 60px;"> header</div>
+        <div class="w-100" style="background: #fbfbfb; padding:15px;height:calc(100% - 60px);">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
