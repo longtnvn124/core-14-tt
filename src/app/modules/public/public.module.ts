@@ -8,13 +8,17 @@ import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
-
+import { Test1Component } from './test1/test1.component';
+import {OvicHtmlDecodePipe} from "@modules/share/pipes/ovic-html-decode.pipe";
 
 @NgModule({
-  declarations: [
-    DevComponent,
-    ChildComponent
-  ],
+    declarations: [
+        DevComponent,
+        ChildComponent,
+        Test1Component,
+        OvicHtmlDecodePipe,
+
+    ],
   imports: [
     CommonModule,
     PublicRoutingModule,

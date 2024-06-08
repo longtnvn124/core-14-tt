@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,16 +7,18 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  // @Input() search:string;
+  @Input() search:string;
 
+  @Output() onDataChange = new EventEmitter<any>();
 
-  @Input() set search(value: string) {
-    this._search = value;
-  }
-  get search(): string {
-    return this._search;
-  }
-  private _search :string;
+  // @Input() set search(value: string) {
+  //   this._search = value;
+  // }
+  // get search(): string {
+  //   return this._search;
+  // }
+  //
+  //  _search :string;
 
 
   constructor() { }
@@ -24,6 +26,11 @@ export class ChildComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  value=1;
+
+  btnclick(){
+    this.value +=1
+  }
 
 
 }

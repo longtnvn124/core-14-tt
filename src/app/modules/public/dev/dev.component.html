@@ -1,14 +1,84 @@
-<p>dev works!</p>
+<div class="container d-flex flex-column justify-content-center " style="width:400px; gap:10px">
+  <p>dev works!</p>
 
 
-<input type="text" pInputText [(ngModel)]="value" />
+  <input type="text" pInputText [(ngModel)]="value" />
 
-<!--<app-child [search]="value"></app-child>-->
+  <app-child [search]="value" ></app-child>
+  <div>
+    <button pButton pRipple label="Set value" (click)="btnSetData()"></button>
+  </div>
+
+  <p> {{ value }}</p>
 
 
-<!--<p> {{ value }}</p>-->
+  <button pButton pRipple label="click" (click)="btnCallChild()"></button>
 
+  <p>=============================ngif===================================</p>
 
-<div>
-  <button pButton pRipple label="Set value" (click)="btnSetData()"></button>
+<!--  <app-child [search]="value" ></app-child>-->
+  <div *ngIf="changeNumber === 1 ">
+    <table>
+      <tr *ngFor="let item of datafor">
+        <td>{{item.id}}</td>
+        <td>{{item.ten}}</td>
+        <td>{{item.css}}</td>
+      </tr>
+    </table>
+  </div>
+
+<!--  <div *ngIf="changeNumber === 2">-->
+<!--    <table>-->
+<!--      <tr *ngFor="let item of datafor">-->
+<!--        <td>{{item.id}}</td>-->
+<!--        <td>{{item.ten}}</td>-->
+<!--        <td>{{item.css}}</td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </div>-->
+
+  <ng-template #type2>
+    <table>
+      <tr *ngFor="let item of datafor">
+        <td [innerHTML]=" item['id'] "></td>
+        <td [innerHTML]=" item['ten'] "></td>
+        <td [innerHTML]=" item['css'] | htmlDecode"></td>
+      </tr>
+    </table>
+  </ng-template>
+
+  <p>=============================SwitchCase===================================</p>
+
+  <ng-container [ngSwitch]="changeNumber">
+    <ng-container *ngSwitchCase=" 1">
+      <table>
+        <tr *ngFor="let item of datafor">
+          <td>{{item.id}}</td>
+          <td>{{item.ten}}</td>
+          <td>{{item.css}}</td>
+        </tr>
+      </table>
+    </ng-container>
+    <ng-container *ngSwitchCase=" 2">
+
+      <table>
+        <tr *ngFor="let item of datafor">
+
+          <td [innerHTML]=" item['id'] "></td>
+
+          <td [innerHTML]=" item['ten'] "></td>
+
+          <td [innerHTML]=" item['css'] | htmlDecode"></td>
+
+        </tr>
+
+      </table>
+      
+    </ng-container>
+
+  </ng-container>
+
+  <button pButton pRipple label="changeNumber" (click)="btnChangeNunber()"></button>
+
 </div>
+
