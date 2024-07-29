@@ -1,30 +1,30 @@
-import { Component , Input , OnInit } from '@angular/core';
-import { NgbModal , ModalDismissReasons , NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { BUTTON_CLOSED , OvicButton } from '@core/models/buttons';
+import {Component, Input, OnInit} from '@angular/core';
+import {BUTTON_CLOSED, OvicButton} from "@core/models/buttons";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
-@Component( {
-	selector    : 'app-confirm' ,
-	templateUrl : './confirm.component.html' ,
-	styleUrls   : [ './confirm.component.css' ]
-} )
+@Component({
+  selector: 'app-confirm',
+  templateUrl: './confirm.component.html',
+  styleUrls: ['./confirm.component.css']
+})
 export class ConfirmComponent implements OnInit {
 
-	@Input() head = 'Xác nhận hành động';
+  @Input() head = 'Xác nhận hành động';
 
-	@Input() body = 'Vui lòng xác nhận hành động';
+  @Input() body = 'Vui lòng xác nhận hành động';
 
-	@Input() buttons : OvicButton[] = [ BUTTON_CLOSED ];
+  @Input() buttons : OvicButton[] = [ BUTTON_CLOSED ];
 
-	constructor( private ngbActiveModal : NgbActiveModal ) {}
+  constructor( private ngbActiveModal : NgbActiveModal ) {}
 
-	ngOnInit() : void {
-	}
+  ngOnInit() : void {
+  }
 
-	confirmAction( button : OvicButton ) {
-		this.ngbActiveModal.close( button );
-	}
+  confirmAction( button : OvicButton ) {
+    this.ngbActiveModal.close( button );
+  }
 
-	close() {
-		this.ngbActiveModal.close( BUTTON_CLOSED );
-	}
+  close() {
+    this.ngbActiveModal.close( BUTTON_CLOSED );
+  }
 }

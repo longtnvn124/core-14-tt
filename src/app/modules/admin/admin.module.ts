@@ -7,6 +7,8 @@ import { HomeComponent } from './features/home/home.component';
 import { ContentNoneComponent } from './features/content-none/content-none.component';
 import { QuanLyTaiKhoanComponent } from './features/quan-ly-tai-khoan/quan-ly-tai-khoan.component';
 import { HeThongComponent } from './features/he-thong/he-thong.component';
+import {RippleModule} from "primeng/ripple";
+import {ButtonModule} from "primeng/button";
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { HeThongComponent } from './features/he-thong/he-thong.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    RippleModule,
+    ButtonModule
   ]
 })
 export class AdminModule { }

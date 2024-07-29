@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ChildComponent} from "@modules/public/dev/child/child.component";
+import {NotificationService} from "@core/services/notification.service";
 
 interface ThiSinh{
   id:number,
@@ -21,7 +22,9 @@ export class DevComponent implements OnInit {
     {id:3,ten:'Vũ',css:`<p class="colorR">59e0c5</p>`},
     {id:4,ten:'Hưng',css:`<p class="colorR">666666</p>`},
   ]
-  constructor() { }
+  constructor(
+    private notificationService: NotificationService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -38,4 +41,22 @@ export class DevComponent implements OnInit {
     this.changeNumber = this.changeNumber === 1 ? 2 : 1;
     console.log(this.changeNumber);
   }
+
+
+  btns(text:string){
+    if(text === 'success'){
+      this.notificationService.toastSuccess('Hoàn thành ','Thông báo',false);
+    }
+    if(text === 'warning'){
+      this.notificationService.toastWarning('Cảnh báo ','Thông báo',false);
+
+    }
+    if(text === 'danger'){
+      this.notificationService.toastError('Báo Lỗi ','Thông báo',false);
+    }
+    if(text === 'info'){
+      this.notificationService.toastError('Thông tin ','Thông báo',false);
+    }
+  }
+
 }

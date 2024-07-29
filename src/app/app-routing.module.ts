@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   // {
   //   path         : 'dev' ,
-  //   loadChildren : () => import('@modules/public/features/dev/dev.module').then( m => m.DevModule )
+  //    loadChildren : () => import('@modules/public/dev/').then( m => m.DevModule )
   // },
   {
     path: '**',
-    redirectTo: 'test',
+    redirectTo: 'dev',
     pathMatch: 'full'
   }
 ];

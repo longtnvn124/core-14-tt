@@ -12,7 +12,6 @@ const routes: Routes = [
     component: DashboardComponent,
     // canActivateChild : [ AdminGuard ] ,
     children: [
-     
       {
         path: 'dashboard',
         component: HomeComponent,
@@ -36,7 +35,7 @@ const routes: Routes = [
 
       {
         path: '**',
-        redirectTo: '/admin',
+        redirectTo: '/admin/dashboard',
         pathMatch: 'prefix'
       }
     ]
